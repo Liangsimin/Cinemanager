@@ -3,8 +3,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText android:id="@+id/fragment_order_tv"
+    <TextView android:id="@+id/fragment_cinemas_add_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请输入参数"/>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="添加影院"/>
+
 </LinearLayout>
