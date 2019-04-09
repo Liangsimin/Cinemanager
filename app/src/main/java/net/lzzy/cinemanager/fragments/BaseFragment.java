@@ -1,5 +1,6 @@
 package net.lzzy.cinemanager.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,9 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import net.lzzy.cinemanager.models.Order;
+import net.lzzy.cinemanager.utils.AppUtils;
 
 import java.util.Objects;
 
@@ -33,6 +37,21 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         populate();
     }
+    <T extends View> T find(@IdRes int id){
+        return Objects.requireNonNull(getView()).findViewById(id);
+
+    }
+
+
+    @Nullable
+    @Override
+    public Context getContext() {
+        Context context =getActivity();
+        if (context == null ){
+            context = AppUtils.getContext();
+        }
+        return  context;
+    }
 
     /**
      * 执行onViewCreated中的初始化视图组件，填充数据的任务
@@ -44,8 +63,12 @@ public abstract class BaseFragment extends Fragment {
      * @return
      */
     public abstract int getLayoutRes();
-    <T extends View> T find(@IdRes int id){
-        return Objects.requireNonNull(getView()).findViewById(id);
 
-    }
+    /**
+     * 通用的标题栏搜索方法，由各Fragment具体实现
+     * @param kw 关键词
+     */
+    public   abstract  void  search(String kw);
+
+    public abstract void save(Order order);
 }

@@ -13,13 +13,13 @@ import java.util.UUID;
 @Table(name = "Orders")
 public class Order extends BaseEntity implements Sqlitable {
     @Ignored
-    static final String COL_MOVIE = "movie";
+    public static final String COL_MOVIE = "movie";
     @Ignored
-    static final String COL_MOVIE_TIME = "movieTime";
+    public static final String COL_MOVIE_TIME = "movieTime";
     @Ignored
-    static final String COL_PRICE = "price";
+    public  static final String COL_PRICE = "price";
     @Ignored
-    static final String COL_CINEMA_ID = "cinemaId";
+    public  static final String COL_CINEMA_ID = "cinemaId";
     private String movie;
     private String movieTime;
     private float price;
